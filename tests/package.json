@@ -1,0 +1,13 @@
+{
+  "name": "lifeos-tests",
+  "private": true,
+  "version": "2.0.0",
+  "description": "Headless test suite for the LifeOS web layer (runs in jsdom).",
+  "scripts": {
+    "test": "node libs.test.js && node app.test.js && node canvas.test.js && node data.test.js"
+  },
+  "devDependencies": {
+    "jsdom": "^24.1.3",
+    "@napi-rs/canvas": "^1.0.10"
+  }
+}

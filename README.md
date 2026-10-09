@@ -84,6 +84,17 @@ The APK is built by GitHub Actions — no Android Studio needed.
 - **Internet** — declared for the WebView asset loader origin; the app itself
   works offline.
 
+## Tests
+
+A headless test suite lives in `tests/` (jsdom + a real canvas backend) and covers
+navigation, persistence, the converters, the image tools, real PDF generation, and
+a QR generate → decode round-trip. It runs on every push via
+`.github/workflows/tests.yml`.
+
+```bash
+cd tests && npm install && npm test
+```
+
 ## Limitations
 
 - Reminders and the countdown chime fire while the app is running (a web layer
