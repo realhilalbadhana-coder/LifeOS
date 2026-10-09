@@ -144,6 +144,10 @@ public class MainActivity extends Activity {
         }
     }
 
+    private void toast(String msg) {
+        runOnUiThread(() -> Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show());
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == FILE_CHOOSER_CODE) {
