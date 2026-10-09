@@ -16,6 +16,22 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Validate web assets
+        run: |
+          set -e
+          for f in android/app/src/main/assets/www/js/*.js; do
+            echo "Checking $f"
+            node --check "$f"
+          done
+          test -f android/app/src/main/assets/www/index.html
+          test -f android/app/src/main/assets/www/css/app.css
+          echo "Web assets look good."
+
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
